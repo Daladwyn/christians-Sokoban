@@ -45,23 +45,29 @@ console.log("pressed key is: "+keyReleased);
 		player.newrow=player.newrow-1;
 		console.log("gamal rad: "+player.row+ " ny rad :"+player.newrow);;
 	
-		if(mapsArray[0].mapGrid[player.newrow][player.col] == " "){
+		if((mapsArray[0].mapGrid[player.newrow][player.col] == " ")||(mapsArray[0].mapGrid[player.newrow][player.col] == "G")){
 			
 			mapsArray[0].mapGrid[player.newrow][player.col]= "P";
 			mapsArray[0].mapGrid[player.row][player.col]= " ";
 			player.row=player.newrow;
 			printMap();
 		}
-		else if{mapsArray[0].mapGrid[player.newrow][player.col]= "W"){
+		else if(mapsArray[0].mapGrid[player.newrow][player.col]== "W"){
 			console.log("Oh, a wall!!!!");
 		}
-		else if(mapsArray[0].mapGrid[player.newrow][player.col]= "B"){
+		else if(mapsArray[0].mapGrid[player.newrow][player.col]== "B"){
 			var blockPosition = player.newrow -1;
-			if(mapsArray[0].mapGrid[blockPosition][player.col]=" "){
-				mapsArray[0].mapGrid[blockPosition][player.col]= "B");
-				mapsArray[0].mapGrid[player.newrow][player.col]="P");
-				mapsArray[0].mapGrid[player.row][player.col]=" ");
+			if(mapsArray[0].mapGrid[blockPosition][player.col]==" "){
+				mapsArray[0].mapGrid[blockPosition][player.col]= "B";
+				mapsArray[0].mapGrid[player.newrow][player.col]="P";
+				mapsArray[0].mapGrid[player.row][player.col]=" ";
 				player.row=player.newrow;
+				printMap();
+			}else if(mapsArray[0].mapGrid[blockPosition][player.col]=="W"){
+				console.log("Oh, a wall behind the block!!!!");
+				printMap();
+			}else if(mapsArray[0].mapGrid[blockPosition][player.col]=="B"){
+				console.log("Oh, a block behind the block!!!");
 				printMap();
 			}
 			
@@ -71,23 +77,99 @@ console.log("pressed key is: "+keyReleased);
 	case "ArrowDown":
 		player.newrow=player.row;
 		player.newrow=player.newrow+1;
-		mapsArray[0].mapGrid[player.row][player.col]= " ";
-		mapsArray[0].mapGrid[player.newrow][player.col]= "P";
-		player.row=player.newrow;
-		break;
+		
+		if((mapsArray[0].mapGrid[player.newrow][player.col] == " ")||(mapsArray[0].mapGrid[player.newrow][player.col] == "G")){
+			
+			mapsArray[0].mapGrid[player.newrow][player.col]= "P";
+			mapsArray[0].mapGrid[player.row][player.col]= " ";
+			player.row=player.newrow;
+			printMap();
+		}
+		else if(mapsArray[0].mapGrid[player.newrow][player.col]== "W"){
+			console.log("Oh, a wall!!!!");
+		}
+		else if(mapsArray[0].mapGrid[player.newrow][player.col]== "B"){
+			var blockPosition = player.newrow +1;
+			if(mapsArray[0].mapGrid[blockPosition][player.col]==" "){
+				mapsArray[0].mapGrid[blockPosition][player.col]= "B";
+				mapsArray[0].mapGrid[player.newrow][player.col]="P";
+				mapsArray[0].mapGrid[player.row][player.col]=" ";
+				player.row=player.newrow;
+				printMap();
+			}else if(mapsArray[0].mapGrid[blockPosition][player.col]=="W"){
+				console.log("Oh, a wall behind the block!!!!");
+				printMap();
+			}else if(mapsArray[0].mapGrid[blockPosition][player.col]=="B"){
+				console.log("Oh, a block behind the block!!!");
+				printMap();
+			}
+		}
+	break;
 	case "ArrowLeft":
 		player.newcol=player.col;
 		player.newcol=player.newcol-1;
-		mapsArray[0].mapGrid[player.row][player.col]= " ";
-		mapsArray[0].mapGrid[player.row][player.newcol]= "P";
-		player.col=player.newcol;
+		
+		if((mapsArray[0].mapGrid[player.row][player.newcol] == " ")||(mapsArray[0].mapGrid[player.row][player.newcol] == "G")){
+			
+			mapsArray[0].mapGrid[player.row][player.newcol]= "P";
+			mapsArray[0].mapGrid[player.row][player.col]= " ";
+			player.row=player.newrow;
+			printMap();
+		}
+		else if(mapsArray[0].mapGrid[player.row][player.newcol]== "W"){
+			console.log("Oh, a wall!!!!");
+		}
+		else if(mapsArray[0].mapGrid[player.row][player.newcol]== "B"){
+			var blockPosition = player.newcol -1;
+			if(mapsArray[0].mapGrid[player.row][blockPosition]==" "){
+				mapsArray[0].mapGrid[player.row][blockPosition]= "B";
+				mapsArray[0].mapGrid[player.row][player.newcol]="P";
+				mapsArray[0].mapGrid[player.row][player.col]=" ";
+				player.row=player.newrow;
+				printMap();
+			}else if(mapsArray[0].mapGrid[player.row][blockPosition]=="W"){
+				console.log("Oh, a wall behind the block!!!!");
+				printMap();
+			}else if(mapsArray[0].mapGrid[player.row][blockPosition]=="B"){
+				console.log("Oh, a block behind the block!!!");
+				printMap();
+			}
+			
+		}
+		
 		break;
 	case "ArrowRight":
 		player.newcol=player.col;
 		player.newcol=player.newcol+1;
-		mapsArray[0].mapGrid[player.row][player.col]= " ";
-		mapsArray[0].mapGrid[player.row][player.newcol]= "P";
-		player.col=player.newcol;
+		
+		if((mapsArray[0].mapGrid[player.row][player.newcol] == " ")||(mapsArray[0].mapGrid[player.row][player.newcol] == "G")){
+			
+			mapsArray[0].mapGrid[player.row][player.newcol]= "P";
+			mapsArray[0].mapGrid[player.row][player.col]= " ";
+			player.row=player.newrow;
+			printMap();
+		}
+		else if(mapsArray[0].mapGrid[player.newrow][player.col]== "W"){
+			console.log("Oh, a wall!!!!");
+		}
+		else if(mapsArray[0].mapGrid[player.row][player.newcol]== "B"){
+			var blockPosition = player.newcol +1;
+			if(mapsArray[0].mapGrid[player.row][blockPosition]==" "){
+				mapsArray[0].mapGrid[player.row][blockPosition]= "B";
+				mapsArray[0].mapGrid[player.row][player.newcol]="P";
+				mapsArray[0].mapGrid[player.row][player.col]=" ";
+				player.row=player.newrow;
+				printMap();
+			}else if(mapsArray[0].mapGrid[player.row][blockPosition]=="W"){
+				console.log("Oh, a wall behind the block!!!!");
+				printMap();
+			}else if(mapsArray[0].mapGrid[player.row][blockPosition]=="B"){
+				console.log("Oh, a block behind the block!!!");
+				printMap();
+			}
+			
+		}
+		
 		break;
 	case "q":
 		exitGame="y";
