@@ -1,0 +1,74 @@
+
+
+div{
+	
+	
+	
+}
+
+	
+.tile{
+	height:36px;
+	width:36px;	
+	display: inline-block;
+	margin: 0px;
+	border: 0px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	
+}
+.tile-wall{
+
+	background-color: #000000;
+	
+	
+	
+}
+.tile-space{
+
+
+	background-color: #cccccc;
+	
+	
+}
+.tile-goal{
+
+	background-color: #ffffff;
+	
+}
+.entity{
+	height:36px;
+	width:36px;
+	display: inline-block;
+	margin: 0px;
+	border: 0px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+.entity-player{
+	
+	background-color: #ff00ff;
+	
+}
+.entity-block{
+
+	background-color: #ffff00;
+	
+}
+.entity-block-goal{
+	
+	background-color: #00ff00;
+	
+	
+}
+.linebreak {
+	height:0px;
+	padding:0px;
+	margin: 0px;
+	border: 0px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}

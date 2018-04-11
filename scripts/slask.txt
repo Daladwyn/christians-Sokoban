@@ -1,0 +1,134 @@
+for (var y=0;y<mapsArray[0].height;y++){
+	for(var x=0;x<mapsArray[0].width;x++){
+		position="r"+y+"c"+x;
+		console.log(position);
+		//output ='<span id="' + position + '">S</span>';
+		//console.log(output);
+		//document.getElementById(position).innerHTML	=output;
+		//document.getElementById("position")= '<span id="position">S</span>';
+		console.log("1   "+mapsArray[0].mapGrid[y][x]);
+		//console.log(mapsArray[0].mapGrid.length);
+		if(mapsArray[0].mapGrid[0][y][x] == [' ']){   //if element is a outside the game
+			output ='<span id="' + position + '">S</span>';
+			console.log(output);
+			document.getElementById(position).innerHTML	=output;
+		}
+		else if (mapsArray[0].mapGrid[0][y][x] ==["W"]){ //if element is a wall
+			output ='<span id="' + position + '">W</span>';
+			console.log(output);
+			document.getElementById(position).innerHTML	=output;
+		}
+		else if (mapsArray[0].mapGrid[0][y][x] ==["B"]){  //if element is a crate
+			output ='<span id="' + position + '">B</span>';
+			console.log(output);
+			document.getElementById(position).innerHTML	=output;
+		}
+		else if (mapsArray[0].mapGrid[0][y][x] ==["G"]){   //if the space is a final positions for a crate
+			output ='<span id="' + position + '">G</span>';
+			console.log(output);
+			document.getElementById(position).innerHTML	=output;
+		}
+		else if (mapsArray[0].mapGrid[0][y][x] ==["P"]){   //this is where the player is
+			output ='<span id="' + position + '">P</span>';
+			console.log(output);
+			document.getElementById(position).innerHTML	=output;
+		}
+	}
+	//<br>
+}
+
+
+	margin:0px;
+	padding:0px;
+	border:0px;
+	background-color: #cccccc
+
+
+for (var y=0;y<mapsArray[0].height;y++){
+		for(var x=0;x<mapsArray[0].width;x++){
+			position="r"+y+"c"+x;
+			if(mapsArray[0].mapGrid[y][x] == " "){   //if element is a outside the game or a pass throu
+				displayPicture("img/i0.gif");
+			}
+			else if (mapsArray[0].mapGrid[y][x] == "W"){ //if element is a wall
+				displayPicture("img/i2.gif");
+			}
+			else if (mapsArray[0].mapGrid[y][x] =="B"){  //if element is a crate
+				displayPicture("img/i3.gif");
+			}
+			else if (mapsArray[0].mapGrid[y][x] =="G"){   //if the space is a final positions for a crate
+				displayPicture("img/i1.gif");
+			}
+			else if (mapsArray[0].mapGrid[y][x] =="P"){   //this is where the player is
+				displayPicture("img/i5.gif");
+				player.row= y;
+				player.col= x;
+							
+							
+							
+							
+body{
+background-color: #cccccc;
+}	
+div{
+	width: 36px; 
+	height: 36px; 
+	
+	
+}
+
+	
+.tile{
+	
+	
+}
+.tile-wall{
+	background-color: #000000;
+	display: inline;
+	
+	
+}
+.tile-space{
+	/*background-image: url("https://sokoban.info/img/i0.gif");
+	background-repeat: no-repeat;*/
+	background-color: #cccccc;
+	display: inline;
+	
+}
+.tile-goal{
+	/*background-image: url("https://sokoban.info/img/i1.gif");
+	background-repeat: no-repeat;*/
+	background-color: #ffffff;
+	display: inline;
+}
+.entity{
+	/*width:36px;
+	height:36px;*/
+}
+.entity-player{
+	/*background-image: url("https://sokoban.info/img/i5.gif");
+	background-repeat: no-repeat;*/
+	background-color: #ff00ff;
+	display: inline;
+}
+.entity-block{
+	/*background-image: url("https://sokoban.info/img/i3.gif");
+	background-repeat: no-repeat;*/
+	background-color: #000000;
+	display: inline;
+}
+.entity-block-goal{
+	/*background-image: url("https://sokoban.info/img/i4.gif");
+	background-repeat: no-repeat;*/
+	background-color: #000000;
+	display: inline;
+}
+.linebreak {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+
+
+document.onkeyup = function(event){
