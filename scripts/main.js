@@ -9,7 +9,7 @@ var player = {
 }
 var position ="r0c0";
 var mapBegins = document.getElementById("Map");
-var keypressed;
+var keyRelease;
 for (var y=0;y<mapsArray[0].height;y++){
 	
 	
@@ -27,54 +27,64 @@ for (var y=0;y<mapsArray[0].height;y++){
 		}
 	}
 }
-alert("grundutskrift klar");
+//alert("grundutskrift klar");
 printMap();
 var exitGame = "n";
-//window.addEventListener("keydown", function(e) {
-    // arrow keys:
-//    if([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-//        e.preventDefault();
-//    }
-//}, false);
 
 
-function whichKeyIsPressed(event){
+document.getElementById("bodyId").onkeyup = function(event){
 	event=event || window.event;
 	event.preventDefault();
-	keyRelease= event.key;
-	switch(keyRelease){
+keyReleased= event.key;
+console.log("pressed key is: "+keyReleased);
+
+
+	switch(keyReleased){
 	case "ArrowUp":
 		player.newrow=player.row;
 		player.newrow=player.newrow-1;
 		console.log("gamal rad: "+player.row+ " ny rad :"+player.newrow);;
 	
-		console.log("gamal karta: "+mapsArray[0].mapGrid[player.row][player.col]);
-		mapsArray[0].mapGrid[player.row][player.col]= " ";
-		console.log("gamal karta efter flytt: "+mapsArray[0].mapGrid[player.row][player.col]);
+		if(mapsArray[0].mapGrid[player.newrow][player.col] == " "){
+			
+			mapsArray[0].mapGrid[player.newrow][player.col]= "P";
+			mapsArray[0].mapGrid[player.row][player.col]= " ";
+			player.row=player.newrow;
+			printMap();
+		}
+		else if{mapsArray[0].mapGrid[player.newrow][player.col]= "W"){
+			console.log("Oh, a wall!!!!");
+		}
+		else if(mapsArray[0].mapGrid[player.newrow][player.col]= "B"){
+			var blockPosition = player.newrow -1;
+			if(mapsArray[0].mapGrid[blockPosition][player.col]=" "){
+				mapsArray[0].mapGrid[blockPosition][player.col]= "B");
+				mapsArray[0].mapGrid[player.newrow][player.col]="P");
+				mapsArray[0].mapGrid[player.row][player.col]=" ");
+				player.row=player.newrow;
+				printMap();
+			}
+			
+		}
 	
-		console.log("ny karta: "+mapsArray[0].mapGrid[player.newrow][player.col]);
-		mapsArray[0].mapGrid[player.newrow][player.col]= "P";
-		console.log("ny karta: "+mapsArray[0].mapGrid[player.newrow][player.col]);
-	
-		player.row=player.newrow;
-		break;
+	break;
 	case "ArrowDown":
 		player.newrow=player.row;
-		player.newrow=player.newrow++;
+		player.newrow=player.newrow+1;
 		mapsArray[0].mapGrid[player.row][player.col]= " ";
 		mapsArray[0].mapGrid[player.newrow][player.col]= "P";
 		player.row=player.newrow;
 		break;
 	case "ArrowLeft":
 		player.newcol=player.col;
-		player.newcol=player.newcol--;
+		player.newcol=player.newcol-1;
 		mapsArray[0].mapGrid[player.row][player.col]= " ";
 		mapsArray[0].mapGrid[player.row][player.newcol]= "P";
 		player.col=player.newcol;
 		break;
 	case "ArrowRight":
 		player.newcol=player.col;
-		player.newcol=player.newcol++;
+		player.newcol=player.newcol+1;
 		mapsArray[0].mapGrid[player.row][player.col]= " ";
 		mapsArray[0].mapGrid[player.row][player.newcol]= "P";
 		player.col=player.newcol;
@@ -85,11 +95,14 @@ function whichKeyIsPressed(event){
 	default:
 		break;
 	}
+	printMap();
+}
 
 
 
 
-printMap();
+
+
 
 	
 //print out the map
@@ -106,7 +119,7 @@ function printMap(){
 for (var y=0;y<mapsArray[0].height;y++){
 	for(var x=0;x<mapsArray[0].width+1;x++){
 		position="r"+y+"c"+x;
-		console.log("nuvarande position "+position);
+		//console.log("nuvarande position "+position);
 		if(mapsArray[0].mapGrid[y][x] == " "){   //if element is a outside the game or a pass throu
 			displayPicture(Tiles.Space);
 		}
@@ -132,11 +145,11 @@ for (var y=0;y<mapsArray[0].height;y++){
 		var output = document.createElement("span");
 		output.setAttribute("id", position);
 		output.setAttribute("class",typeOfClass);
-		console.log("output blev "+output);
+		//console.log("output blev "+output);
 		var itemToBeRemoved = document.getElementById(position);
 		mapBegins.replaceChild(output,itemToBeRemoved);
 	}
-	alert("Map is printed");
+	//alert("Map is printed");
 }
 //keypressed key eventhandeler
 function startGame(){
