@@ -1,3 +1,14 @@
+else if(whichMap.mapGrid[player.newrow][player.col]=="G"){
+			for(var i=0; i<(goalPositionArray.length/2);i+2){
+				//if(player.row==goalPositionArray[i]){
+					//if(player.col==goalPositionArray[i+1]){
+						//whichMap.mapGrid[player.newrow][player.col]="P";
+						//whichMap.mapGrid[player.row][player.com]="G";
+				//	}
+				//}
+
+
+
 for (var y=0;y<mapsArray[0].height;y++){
 	for(var x=0;x<mapsArray[0].width;x++){
 		position="r"+y+"c"+x;
