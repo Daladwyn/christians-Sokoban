@@ -152,3 +152,18 @@ document.onkeyup = function(event){
 //        e.preventDefault();
 //    }
 //}, false);
+
+
+
+else if(whichMap.mapGrid[player.newrow][player.col]=="G"){
+			for(var i=0; i<(goalPositionArray.length/2);i=i+2){
+				if(player.row==goalPositionArray[i]){
+					if(player.col==goalPositionArray[i+1]){
+						whichMap.mapGrid[player.newrow][player.col]="P";
+						whichMap.mapGrid[player.row][player.com]="G";
+					}
+				}
+			}
+			player.row=player.newrow;
+			printMap();
+		}
