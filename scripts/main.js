@@ -76,7 +76,7 @@ document.getElementById("bodyId").onkeydown = function(event){
 				console.log("Oh, a wall behind the block!!!!");
 				printMap();
 			}else if(whichMap.mapGrid[blockPosition][player.col]==" "){
-				horisontalBlockMovementInGoalArea(blockPosition);
+				verticalBlockMovement(blockPosition);
 			}else if(whichMap.mapGrid[blockPosition][player.col]=="D"){
 				console.log("Oh, a block behind the block!!!");
 				printMap();
@@ -117,7 +117,7 @@ document.getElementById("bodyId").onkeydown = function(event){
 				console.log("Oh, a wall behind the block!!!!");
 				printMap();
 			}else if(whichMap.mapGrid[blockPosition][player.col]==" "){
-				horisontalBlockMovementInGoalArea(blockPosition);
+				verticalBlockMovement(blockPosition);
 			}else if(whichMap.mapGrid[blockPosition][player.col]=="D"){
 				console.log("Oh, a block behind the block!!!");
 				printMap();
@@ -158,7 +158,7 @@ document.getElementById("bodyId").onkeydown = function(event){
 				console.log("Oh, a wall behind the block!!!!");
 				printMap();
 			}else if(whichMap.mapGrid[player.row][blockPosition]==" "){
-				horisontalBlockMovementInGoalArea(blockPosition);
+				horisontalBlockMovement(blockPosition);
 			}else if(whichMap.mapGrid[player.row][blockPosition]=="D"){
 				console.log("Oh, a block behind the block!!!");
 				printMap();
@@ -199,7 +199,7 @@ document.getElementById("bodyId").onkeydown = function(event){
 				console.log("Oh, a wall behind the block!!!!");
 				printMap();
 			}else if(whichMap.mapGrid[player.row][blockPosition]==" "){
-				horisontalBlockMovementInGoalArea(blockPosition);
+				horisontalBlockMovement(blockPosition);
 			}else if(whichMap.mapGrid[player.row][blockPosition]=="D"){
 				console.log("Oh, a block behind the block!!!");
 				printMap();
@@ -228,7 +228,7 @@ document.getElementById("bodyId").onkeydown = function(event){
 function verticalBlockMovementInGoalArea(blockPosition){
 	whichMap.mapGrid[blockPosition][player.col]= "D";
 	whichMap.mapGrid[player.newrow][player.col]="P";
-	whichMap.mapGrid[player.row][player.col]="G";
+	whichMap.mapGrid[player.row][player.col]=" ";
 	player.row=player.newrow;
 	printMap();
 }
